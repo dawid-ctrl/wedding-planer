@@ -33,6 +33,7 @@ public class BandController {
       return "bands-all";
     }
 
+
     @GetMapping("/add-band-form")
     public String addBandForm(Model model) {
         Band band = new Band();
@@ -77,10 +78,10 @@ public class BandController {
         return "band-calendar";
     }
 
-    @GetMapping("/chose-band-from/{bandId}")
-    public String checkYourBand (Model model, Long bandId) {
+    @GetMapping("/chose-band-form/{bandId}")
+    public String checkYourBand (@PathVariable Long bandId, Model model) {
         Band band = bandService.findBandById(bandId);
-        model.addAttribute("bands",band);
+        model.addAttribute("band",band);
         return "chose-band";
     }
 
