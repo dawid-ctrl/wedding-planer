@@ -1,14 +1,13 @@
-package com.sda.wedding.mapper;
+package com.sda.wedding.delete.mapper;
 
 
 import com.sda.wedding.model.Band;
-import com.sda.wedding.web.dto.BandResponse;
-import lombok.AccessLevel;
-import lombok.NoArgsConstructor;
+import com.sda.wedding.delete.mapper.web.dto.BandResponse;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 @Component
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
+@RequiredArgsConstructor
 public class BandToBandDtoMapper {
     public BandResponse toResponse (Band band) {
         return BandResponse.builder()

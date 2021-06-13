@@ -1,13 +1,10 @@
-package com.sda.wedding.web.dto;
+package com.sda.wedding.delete.mapper.web.dto;
 
 import com.sda.wedding.model.TypeOfMusic;
-import com.sda.wedding.model.User;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.util.Set;
 
 @Data
 @AllArgsConstructor

@@ -1,4 +1,4 @@
-package com.sda.wedding.web.dto;
+package com.sda.wedding.delete.mapper.web.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
