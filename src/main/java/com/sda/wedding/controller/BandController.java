@@ -4,7 +4,6 @@ package com.sda.wedding.controller;
 import com.sda.wedding.model.Band;
 import com.sda.wedding.service.BandService;
 import lombok.AllArgsConstructor;
-import lombok.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,7 +22,7 @@ public class BandController {
 
     @GetMapping
     public String empty() {
-        return "redirect:/api/v1/band/index";
+        return "redirect:/welcome";
     }
 
     @GetMapping("/all")
@@ -37,7 +36,7 @@ public class BandController {
     @GetMapping("/add-band-form")
     public String addBandForm(Model model) {
         Band band = new Band();
-        model.addAttribute("band", band);
+        model.addAttribute("bands", band);
         return "add-band";
     }
 
@@ -47,7 +46,7 @@ public class BandController {
             return "add-band";
         }
         bandService.createBand(band);
-        return "redirect:/bands-all";
+        return "redirect:/api/v1/band/all";
     }
 
     @GetMapping("update-band/{bandId}")
@@ -74,7 +73,15 @@ public class BandController {
 
     @GetMapping("/calendar/{bandId}")
     public String checkCalendar (@PathVariable Long bandId) {
+
         return "band-calendar";
+    }
+
+    @GetMapping("/chose-band-from/{bandId}")
+    public String checkYourBand (Model model, Long bandId) {
+        Band band = bandService.findBandById(bandId);
+        model.addAttribute("bands",band);
+        return "chose-band";
     }
 
 

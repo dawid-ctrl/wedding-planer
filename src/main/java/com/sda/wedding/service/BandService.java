@@ -28,8 +28,8 @@ public class BandService {
     }
 
 
-    public Band createBand (Band band) {
-        return bandRepository.save(band);
+    public void createBand (Band band) {
+        bandRepository.save(band);
     }
 
 }

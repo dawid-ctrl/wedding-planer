@@ -9,10 +9,16 @@
 <body>
 <div class="container my-5">
     <h2>Bands List</h2>
-    <a th:href="@{/api/v1/banda/dd-band-from}" class="btn btn-primary btn-sm mb-3">Add Band</a>
+    <div class="alert alert-primary" role="alert">
+        Here you can see all bands available
+    </div>
+    <hr>
+    <a th:href="@{/api/v1/band/add-band-form}" class="btn btn-primary btn-sm mb-4">Add Band</a>
+    <a th:href="@{/welcome}" class="btn btn-primary btn-sm mb-4">Back to main</a>
+
     <table class="table table-striped table-responsive-md">
         <thead>
-            <tr style="text-align: center; color: darkblue; background: lightgray">
+            <tr style="text-align: center; text-shadow: black; color: darkblue; background: lightgray">
                 <th><p>ID</p></th>
                 <th><p>Name</p></th>
                 <th><p>Email</p></th>

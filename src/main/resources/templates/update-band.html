@@ -9,6 +9,9 @@
 <body>
 <div class="container my-5">
     <h2 class="mb-3">Update band</h2>
+    <div class="alert alert-warning" role="alert">
+        Please update your band
+    </div>
     <hr>
     <form th:action="@{/api/v1/band/update-band}" th:object="${band}" method="post">
         <input type="hidden" th:field="*{id}">
