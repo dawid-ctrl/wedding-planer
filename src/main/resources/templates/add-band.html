@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add new band</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+</head>
+<body>
+<div class="container my-5
+">
+    <h2>Add new band</h2>
+    <div class="alert alert-success" role="alert">
+        Please add your new band
+    </div>
+    <hr>
+    <form th:action="@{/api/v1/band/add-band}" th:object="${bands}" method="post">
+        <div class="form-group col-md-6">
+            <label for="name" class="col-form-label">Name</label>
+            <input type="text" th:field="*{name}" placeholder="Name" id="name" class="form-control">
+            <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="email" class="col-form-label">E-mail</label>
+            <input type="email" th:field="*{email}" placeholder="E-mail" id="email" class="form-control mb-4 col-4">
+            <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="city" class="col-form-label">City</label>
+            <input type="text" th:field="*{city}" placeholder="City" id="city" class="form-control mb-4 col-4">
+            <span th:if="${#fields.hasErrors('city')}" th:errors="*{city}" class="text-danger"></span>
+        </div>
+<!--        <div class="form-group col-md-6">-->
+<!--            <label for="Music" class="col-form-label">Music</label>-->
+<!--            <span style="font-size: x-small">(choose type of music from the list)</span>-->
+<!--            <select name="select" th:field="*{music}" id="music" class="form-control mb-4 col-4">-->
+<!--                <option selected>Choose...</option>-->
+<!--                <option>POP</option>-->
+<!--                <option>ROCK</option>-->
+<!--                <option>COUNTRY</option>-->
+<!--                <option>JAZZ</option>-->
+<!--                <option>DISCO</option>-->
+<!--            <span th:if="${#fields.hasErrors('music')}" th:errors="*{music}" class="text-danger"></span>-->
+<!--            </select>-->
+<!--        </div>-->
+        <hr>
+        <button type="submit" class="btn btn-info">Save band</button>
+    </form>
+    <hr>
+    <a th:href="@{/api/v1/band/bands-all}" class="btn btn-warning">Back</a>
+</div>
+</body>
+</html>

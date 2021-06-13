@@ -1,27 +1,25 @@
-package com.sda.wedding.web.dto;
+package com.sda.wedding.web;
 
-import com.sda.wedding.model.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
-import java.util.Set;
+import javax.validation.constraints.NotEmpty;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class CreateHallRequest {
 
-    @NotBlank(message = "Name cannot be blank")
+    @NotEmpty(message = "Name cannot be empty")
     private String name;
-    @NotBlank(message = "City cannot be blank")
+    @NotEmpty(message = "Name cannot be empty")
     private String city;
-    @NotBlank(message = "E-mail cannot be blank")
     @Email(message = "Invalid email")
     private String email;
-    @NotBlank(message = "Capacity cannot be blank")
+    @NotEmpty(message = "Name cannot be empty")
     private int capacity;
     private boolean isAvailable;
 //    private Set<User> userSet;

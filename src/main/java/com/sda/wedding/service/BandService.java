@@ -23,13 +23,13 @@ public class BandService {
                 .orElseThrow(()-> new MissingBandException(bandId));
     }
 
-    public void deleteById (long bandId) {
+    public void deleteBand (Long bandId) {
         bandRepository.deleteById(bandId);
     }
 
 
-    public Band createBand (Band band) {
-        return bandRepository.save(band);
+    public void createBand (Band band) {
+        bandRepository.save(band);
     }
 
 }

@@ -9,22 +9,48 @@
 <body>
 <div class="container my-5">
     <h2>Bands List</h2>
-
+    <div class="alert alert-primary" role="alert">
+        Here you can see all bands available
+    </div>
+    <hr>
+    <a th:href="@{/api/v1/band/add-band-form}" class="btn btn-primary btn-sm mb-4">Add Band</a>
+    <a th:href="@{/welcome}" class="btn btn-primary btn-sm mb-4">Back to main</a>
 
     <table class="table table-striped table-responsive-md">
         <thead>
-            <tr>
+            <tr style="text-align: center; text-shadow: black; color: darkblue; background: lightgray">
                 <th><p>ID</p></th>
                 <th><p>Name</p></th>
                 <th><p>Email</p></th>
                 <th><p>City</p></th>
                 <th><p>Music Type</p></th>
-                <th><p>Check availability</p></th>
+                <th><p>Availability</p></th>
                 <th><p>Actions</p></th>
             </tr>
         </thead>
         <tbody>
+            <tr style="text-align: center" th:each="band : ${bands}">
+                <td th:text="${band.getId()}"></td>
+                <td th:text="${band.getName()}"></td>
+                <td th:text="${band.getCity()}"></td>
+                <td th:text="${band.getEmail()}"></td>
+                <td th:text="${band.getMusic()}"></td>
+                    <td>
+                         <a th:href="@{'/api/v1/band/calendar/' + ${band.id}}"
+                            class="btn btn-primary btn-sm">Check calendar</a>
+                    </td>
+                    <td>
+                        <a th:href="@{'/api/v1/band/choose-band/' + ${band.id}}"
+                           class="btn btn-success btn-sm">Choose</a>
 
+                        <a th:href="@{'/api/v1/band/update-band/' + ${band.id}}"
+                             class="btn btn-warning btn-sm">Update</a>
+
+                        <a th:href="@{'/api/v1/band/delete-band/' + ${band.id}}"
+                             class="btn btn-danger btn-sm">Delete</a>
+                    </td>
+
+            </tr>
 
 
         </tbody>

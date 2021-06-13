@@ -6,8 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
-@RequestMapping("/api/v1/main")
+@Controller
 public class MainController {
 
     private static final String HELLO_MESSAGE = "welcomeMsg";
@@ -15,6 +14,6 @@ public class MainController {
     @GetMapping("/welcome")
     public String showWelcomeMsg(final ModelMap modelMap) {
         modelMap.addAttribute(HELLO_MESSAGE, "Welcome to you wedding planner");
-        return "main";
+        return "index";
     }
 }
